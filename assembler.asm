@@ -1,24 +1,29 @@
-# Universidade Regional Integrada do Alto uruguai e das Missões */
-# Arquivo de validacao do Assembler
-# Disciplina :Trabalho de conclusao - 10 Semestre */
-# Professor : Mr.Carlos petry */
-# Aluno : Raffael Bottoli Schemmer */
-# Data Termino : 17/11/2009 */
-# Bloco que contempla todas as instrucoes do codigo
+/* # Universidade Regional Integrada do Alto uruguai e das Missões */
+/* # [TEST] Assembly code (ASM) that check's the assembler behavior */
+/* # Class name : Final Graduate Work - 10th semester */
+/* # Advisor : MSc. Carlos Alberto petry (carlos.petry@passofundo.ifsul.edu.br) */
+/* # Student : Raffael Bottoli Schemmer (raffael.schemmer@gmail.br) */
+/* # Finish Date (Last Revision) : 17/11/2009 (12:00 AM) */
 
 #.text
 
-# Teste de instrucoes de adicao R - Type (CORRETA)
+############################################
+##    (100%) Test of Non Operate TAG      ##
+############################################
 
-#nop							- OK COMANDO VALIDO + 100% +100% = 0
+#nop                             - Ok 100% (Assembler accept this command)
 
-# Teste de instrucoes de adicao R - Type (CORRETA)
-#add 00,1,$r9,$r4# 					- OK COMANDO VALIDO + 100% +100% = 2452
-#add 01,1,$r12,$r3# 					- OK COMANDO VALIDO + 100% +100% = 3011
-#add 00,1,$t0,$t1# 					- OK COMANDO VALIDO + 100% +100% = 2543
-#add 10,1,2,1#						- Ok COMANDO VALIDO + 100% +100% = 3361
+############################################
+##   (100%) Test of ADD Instructions (R)  ##
+############################################
 
-# Teste de instrucoes de adicao R - Type (ERRADA)
+# Adding Instruction using direct mode (Corrent Sintax)
+#add 00,1,$r9,$r4# 					     - Ok 100% (Assembler accept this command)
+#add 01,1,$r12,$r3#              - Ok 100% (Assembler accept this command)
+#add 00,1,$t0,$t1#               - Ok 100% (Assembler accept this command)
+#add 10,1,2,1#		               - Ok 100% (Assembler accept this command)
+
+# Adding Instruction using direct mode (Wrong Sintax)
 #ad 02,1,$r9,$r4 # Opcode desconhecido 			- OK ERRO ENCONTRADO + 100%
 #add 02,1,$r9,$r4 # Modo de enderecamento invalido	- OK ERRO ENCONTRADO + 100% 
 #add 00,3,$r9,$r4 # Registrador destino desconhecido	- OK ERRO ENCONTRADO + 100%
@@ -347,22 +352,37 @@
 #jmp 2049 # Faixa nao representavel			- OK ERRO ENCONTRADO + 100%
 #jmp  # Falta operandos					- OK ERRO ENCONTRADO + 100%
 
-#halt # Instrucao que indica que o processador deve parar de executar
+############################################
+##         (100%) Test of Halt TAG        ##
+############################################
 
-# Bloco que contempla todas os dados do codigo
-#.data #						- OK COMANDO VALIDO + 100%
+#halt #                       - Ok 100% (Assembler accept this command)
 
-# Carrega uma celula de memoria (CORRETA)
-#.byte 8						- OK COMANDO VALIDO + 100% + 100% = 8
+############################################
+##      (100%) Test of Data Block TAG     ##
+############################################
 
-# Carrega uma celula de memoria (ERRADA)
-#.byte 							- OK ERRO ENCONTRADO + 100%
-#byte  							- OK ERRO ENCONTRADO + 100%
-#.byte 512						- OK ERRO ENCONTRADO + 100%
+#.data #						          - Ok 100% (Assembler accept this command)
 
-# Carrega uma palavra em memoria (CORRETA)
-#.word 512#						- OK COMANDO VALIDO + 100% + 100% = 8
+############################################
+## (100%) Test of Loading Bytes to Memory ##
+############################################
 
-# Carrega uma palavra de memoria (ERRADA)
-#1 # .word nao encontrado				- OK ERRO ENCONTRADO + 100%
-#.word  # falta valor					- OK ERRO ENCONTRADO + 100%
+# Load one cell of data (Corrent Sintax)
+#.byte 8						          - Ok 100% (Assembler accept this command)
+
+# Load one cell of data (Wrong Sintax)
+#.byte 							          - Ok 100% (Assembler found this error)
+#byte  							          - Ok 100% (Assembler found this error)
+#.byte 512						        - Ok 100% (Assembler found this error)
+
+############################################
+## (100%) Test of Loading Words to Memory ##
+############################################
+
+# Load one word of data (Corrent Sintax)
+#.word 512#						        - Ok 100% (Assembler accept this command)
+
+# Load one word of data (Wrong Sintax)
+#1 # .word              		  - Ok 100% (Assembler found this error) Output: "Not Found"
+#.word			                  - Ok 100% (Assembler found this error) Output: "Need Value" 
