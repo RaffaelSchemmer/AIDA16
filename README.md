@@ -1,7 +1,6 @@
 __Assume-se para este tutorial que o computador configurado possui ambiente Linux e GCC instalado.__
 
 Simulador e montador do conjunto de instruções não temporizado (ISS) do processador AIDA16
-
 ========
 
 ```
