@@ -54,7 +54,8 @@ mov $t0,$r1 # Move o conteúdo do registrador $r0 para o registrador $r1
 and 00,0,$r0,$r1 # Realiza a operação AND entre os dados de $r0 e $r1
 or 00,0,$r0,$r2 # Realiza a operação OR entre os dados de $r0 e $r1
 xor 00,0,$r0,$r3 # Realiza a operação XOR entre os dados de $r0 e $r1
-not 00,0,$r0,$r4 # Realiza a operação NOT entre os dados de $r0 e $r1
+not 00,0,$r0 # Realiza a operação NOT entre os dados de $r0
+
 
 li 0,16 # Carrega o número 16 para o registrador $t0
 mov $t0,$r1 # Move o conteúdo do registrador $t0 para o registrador $r1
@@ -68,12 +69,13 @@ rol 00,0,$r1 # Realiza a rotação do bit mais significativo para o menos signif
 # Bloco de escrita de bytes da memória de dados para o banco de registradores #
 ###############################################################################
 
-lui 0,1 # Carrega o número 1 para os 8 bits mais significativos do registrador (00000001 00000000) ou 512.
+lui 0,1 # Carrega o número 1 para os 8 bits mais significativos do registrador (00000001 00000000) ou 256.
 li 1,0 # Carrega o número 0 para o registrador $t1
-sb $t1,$t0 # Carrega para o endereço 0 da memória de dados (apontado por $t1) o conteúdo do registrador $t0
+sb $t1,$r1 # Carrega para o endereço 0 da memória de dados (apontado por $t1) o conteúdo do registrador $r1
 
 nop # Instrução que não faz nada
-halt # Finaliza a execução do simulador (termina o programa)
+
+halt
 
 .data # Aponta para os dados do programa (memória de dados)
 
@@ -86,13 +88,3 @@ halt # Finaliza a execução do simulador (termina o programa)
 .byte 3
 .byte 2
 .byte 1
-
-
-
-
-
-
-
-
-
-
