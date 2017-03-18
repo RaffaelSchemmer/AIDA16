@@ -41,9 +41,9 @@ lb $r8,$t0 # Carrega o endereço (byte) 8 da memória de dados para o registrado
 ######
 
 li 0,5 # Carrega o número 5 para o registrador $t0
-lb $r9,$t0
-li 0,-1 # Carrega o número -1 para o registrador $t0
-lb $r10,$t0
+mov $t0,$r9
+li 0,1 # Carrega o número 1 para o registrador $t0
+mov $t0,$r10
 nop
 nop
 sub 00,0,$r9,$r10
@@ -54,13 +54,13 @@ jnz -4
 ######
 
 li 0,5 # Carrega o número 5 para o registrador $t0
-lb $r9,$t0
-li 0,-1 # Carrega o número -1 para o registrador $t0
-lb $r10,$t0
+mov $t0,$r9
+li 0,1 # Carrega o número 1 para o registrador $t0
+mov $t0,$r10
 nop
 nop
 sub 00,0,$r9,$r10
-jz 3
+jz 2
 jmp -5
 nop # Instrução que não faz nada
 halt # Finaliza a execução do simulador (termina o programa)
@@ -76,13 +76,3 @@ halt # Finaliza a execução do simulador (termina o programa)
 .byte 3
 .byte 2
 .byte 1
-
-
-
-
-
-
-
-
-
-
