@@ -31,9 +31,9 @@ lb $r7,$t0 # Carrega o endereço (byte) 7 da memória de dados para o registrado
 li 0,8 # Carrega o número 8 para o registrador $t0
 lb $r8,$t0 # Carrega o endereço (byte) 8 da memória de dados para o registrador $r8
 
-####################################
-# Bloco das instruções aritméticas #
-####################################
+#####################################################
+# Bloco das instruções aritméticas (Modo direto 00) #
+#####################################################
 
 add 00,0,$r0,$r1 # Soma o conteúdo do $r0 com o conteúdo do $r1 e coloca em $r0
 sub 00,0,$r0,$r1 # Subtrai o conteúdo de $r0 com o conteúdo de $r1 e coloca em $r0
@@ -43,6 +43,34 @@ inc 00,0,$r0 # Incrementa o valor de $r0 em uma unidade (+1)
 dec 00,0,$r1 # Decrementa o valor de $r0 em uma unidade (-1)
 mod 00,0,$r6,$r7 # Captura o resto da divisão de $r6 por $r7 colocando o resultado em $r6
 mov $r0,$r1 # Move o conteúdo do registrador $r0 para o registrador $r1
+
+#######################################################
+# Bloco das instruções aritméticas (Modo imediato 10) #
+#######################################################
+
+add 10,0,2,3 # Soma o número 2 com o número 3 e coloca em $t0
+sub 10,0,3,2 # Subtrai o número 3 com o número 2 e coloca em $t0
+mul 10,1,5,4 # Multiplica o número 5 com o número 4 e coloca em $t1
+div 10,1,4,2 # Divide o número 4 pelo número 2 e coloca em $t1
+mod 10,1,8,4 # Captura o resto da divisão de 8 e de 4 colocando o resultado em $t1
+
+#######################################################
+# Bloco das instruções aritméticas (Modo indireto 01) #
+#######################################################
+
+li 0,0 # Carrega o número 1 para o registrador $t0
+li 1,1 # Carrega o número 2 para o registrador $t1
+
+lb $r10,$t0 # 
+lb $r11,$t1 # 
+
+li 0,10 # Carrega o número 1 para o registrador $t0
+li 1,20 # Carrega o número 2 para o registrador $t1
+
+lb $r0,$t0 # 
+lb $r1,$t1 # 
+
+add 10,0,$r10,r11 # Soma o conteúdo apontado por $r0 e o por $r1
 
 ################################
 # Bloco das instruções lógicas #
