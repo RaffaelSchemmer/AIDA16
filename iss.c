@@ -1669,6 +1669,7 @@ void INTERFACE_SIMULADOR()
 	do
 	{
 		printf("\33[H\33[2J");
+		/*
 		printf("\n\t\t|| -- 	           ISS AIDA      	      -- ||\n");
 		printf("\t\t|| --  				    	      -- ||\n");
 		printf("\t\t|| --    (E) - Executar numero X de fases    --  ||\n");
@@ -1684,6 +1685,8 @@ void INTERFACE_SIMULADOR()
 		fflush(stdin);
 		scanf("%c",&opt);
 		fflush(stdin);
+		*/
+		opt = 'C'; 
 		opt = toupper(opt);
 		if(opt == 'S')
 		{
