@@ -16,11 +16,16 @@ mov $r1,$r2
 dec 00,0,$r1
 mul 00,0,$r2,$r1
 inc 00,0,$t0
-div 00,0,$t0,$r0
-jz -5
+mov $r0,$r3
+div 00,1,$t0,$r3
+jz -6
 
 li 0,1
-lw $r2,$t0
+sw $t0,$r2
+
+halt
+
+.data
 
 .byte 5
 .word 0
