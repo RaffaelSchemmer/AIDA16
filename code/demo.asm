@@ -28,8 +28,6 @@
 # dec 00,0,$t1
 # jnz -2
 #
-#
-#
 # Operadores relacionais (> < == != >= <=)
 # Os exemplos são estruturas condicionais do tipo (IF)
 #
